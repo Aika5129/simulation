@@ -18,6 +18,11 @@ class village:
         """
         self.population = population
 
+        self.water = 0
+        self.food_p = 0
+        self.food_a_aqua = 0
+        self.food_a_land = 0
+
     def add_population(self):
         """
         人口増加
@@ -73,7 +78,27 @@ class environment:
 
 
     def soil(self, code):
-        return code,water,food_p,food_a_aqua,food_a_land
+
+        #土壌の管理コード　code
+
+        #水              water
+        #植物性食糧       food_p
+        #水中動物性食料   food_a_aqua
+        #陸上動物性食料   food_a_land
+
+        if code == 0 or code == 2 or code == 9:
+            pass
+
+        elif code == 1:
+            #水はけがよい土地
+            self.water = -1
+            self.food_a_land = 1
+
+        elif code == 3:
+            #湿地
+            self.water = 1
+            self.food_a_aqua = 1
+
 
     # 要求関数
 
